@@ -1,0 +1,19 @@
+<h2>Information Product</h2>
+<table id="show_room_extra_option" border="1">
+    <tr>
+        <th>Product name</th>
+        <th>Sku </th>
+        <th>Url</th>
+        <th>Commission type</th>
+        <th>Commission value</th>
+    </tr>
+    <?php $test = $block->getInfoProduct() ?>
+        <tr>
+            <td><?php echo $test['name'] ?></td>
+            <td><?php echo $test['sku'] ?></td>
+            <td><?php echo $test['url'] ?></td>
+            <td><?php echo $test['commission_type'] ?></td>
+            <td><?php echo $test['commission_value'] ?></td>
+        </tr>
+</table>
+

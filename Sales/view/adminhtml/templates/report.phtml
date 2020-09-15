@@ -1,0 +1,38 @@
+<h2><strong>Commission Report according to Product </strong></h2>
+
+<input type="text" id ="filter_product_sku" name="filter_product_sku" placeholder="Nhap vao sku filter" >
+
+
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $("#filter_product_sku").blur(function (e) {
+                e.preventDefault();
+                let custom_link ="http://mage.local/sales/ajax/filtersku";
+                let product_sku = $("#filter_product_sku").val();
+                debugger
+                // $.post(custom_link, {
+                //     sku: product_sku,
+                // }).done(function (data) {
+                //     alert(data);
+                // }).fail(function (error)
+                // {
+                //     console.log(error)
+                // });
+                $.ajax({
+                    url : custom_link,
+                    type: "POST",
+                    data: { sku: product_sku},
+                    showLoader:true,
+                    dataType:'json',
+                    success : function (data)
+                    {
+                       alert(data);
+                    }
+                });
+
+
+            });
+        });
+    });
+</script>

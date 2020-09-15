@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Magenest_Sales::show"
+            title="Sales Agent"
+            module="Magenest_Sales"
+            sortOrder="50"
+            resource="Magenest_Sales::show"/>
+        <add
+            id="Magenest_Sales::report"
+            title="Commission Report"
+            module="Magenest_Sales"
+            sortOrder="15"
+            action="sales/index/index"
+            parent="Magenest_Sales::show"
+            resource="Magenest_Sales::report"/>
+    </menu>
+</config>
+

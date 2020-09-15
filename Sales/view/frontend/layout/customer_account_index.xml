@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account_index.xml"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\Sales\Block\AllProductHasSA" name="customer_account_all_product_has_sa" as="sa" template="Magenest_Sales::allproducthassa.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

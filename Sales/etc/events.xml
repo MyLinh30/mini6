@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_submit_all_after">
+        <observer name="checkout_submit_all_after_observer" instance="Magenest\Sales\Observer\HandleSA" disabled="false"/>
+    </event>
+    <event name="customer_load_after">
+        <observer name="customer_load_after" instance="Magenest\Sales\Observer\HandleCustomer"/>
+    </event>
+</config>
