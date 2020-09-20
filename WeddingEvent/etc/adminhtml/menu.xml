@@ -15,7 +15,7 @@
             module="Magenest_WeddingEvent"
             sortOrder="55"
             parent="Magenest_WeddingEvent::managementwedding"
-            action="wed/index/"
+            action="wed/index/index/"
             resource="Magenest_WeddingEvent::wedding"
         />
     </menu>

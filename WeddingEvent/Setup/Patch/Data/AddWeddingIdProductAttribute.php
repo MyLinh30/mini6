@@ -49,7 +49,7 @@ class AddWeddingIdProductAttribute implements DataPatchInterface
         $this->moduleDataSetup->getConnection()->startSetup();
         $setup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $setup->addAttribute(
-            \Magento\Catalog\Model\Product::ENTITY, 'wedding_id', [
+            \Magento\Catalog\Model\Product::ENTITY, 'wedding_event_id', [
             'type' => 'int',
             'label' => 'Wedding',
             'input' => 'select',
@@ -57,8 +57,6 @@ class AddWeddingIdProductAttribute implements DataPatchInterface
             'user_defined' => false,
             'sort_order' => 210,
             'visible' => true,
-            'required' => true,
-            'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
             'source' => 'Magenest\WeddingEvent\Model\Config\Source\GetWeddingId',
             'position' => 500,
             'system' => 0,

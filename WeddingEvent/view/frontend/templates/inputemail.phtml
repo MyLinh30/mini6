@@ -1,0 +1,175 @@
+<!--<div id="show">-->
+<!--    <label for="bride_email"><b>Bride's email</b></label>-->
+<!--    <input type="email" id="bride_email" name="bride_email">-->
+<!--    <label for="groom_email"><strong>Groom's email</strong></label>-->
+<!--    <input type="email" id="groom_email" name="groom_email">-->
+<!--    <input type="submit" id="check" value="Check Information" name="submit">-->
+<!--</div>-->
+<!--<div id="show_result_found"></div>-->
+<!--<style>-->
+<!--    #show {-->
+<!--        margin-bottom: 50px;-->
+<!--    }-->
+<!--</style>-->
+<!--<script>-->
+<!--    require(['jquery'], function ($) {-->
+<!--        $('#check').click(function (e) {-->
+<!--            e.preventDefault();-->
+<!--            let customerlink = 'http://mage.local/wed/ajax/showinfobyemail';-->
+<!--            let bride = $('#bride_email').val();-->
+<!--            let groom = $('#groom_email').val();-->
+<!--            $.ajax({-->
+<!--                url: customerlink,-->
+<!--                method: "POST",-->
+<!--                data: {e1: bride, e2: groom},-->
+<!--                dataType: 'json',-->
+<!--            }).done(function (data) {-->
+<!--                data.forEach(function (data, index){-->
+<!--                console.log(data);-->
+<!---->
+<!--                // if (data.data.totalRecords === 0) {-->
+<!--                //     $('#show_result_found').text('Not Wedding Event Found');-->
+<!--                // } else {-->
+<!--                //     let items = data.data.items;-->
+<!--                //     let results = result.data.result;-->
+<!--                //     let html = '';-->
+<!--                //     let html1 = '';-->
+<!--                //     let html11 = '';-->
+<!--                //     let html2 = '';-->
+<!--                //     let html22 = '';-->
+<!--                //     for (item of items) {-->
+<!--                //         html += item.title;-->
+<!--                //         html1 += item.bride_firstname;-->
+<!--                //         html11 += item.bride_lastname;-->
+<!--                //         html2 += item.groom_firstname;-->
+<!--                //         html22 += item.groom_lastname;-->
+<!--                //     }-->
+<!--                //     let html4 ='';-->
+<!--                //     for($result of results)-->
+<!--                //     {-->
+<!--                //         html4 +=$result.entity_id;-->
+<!--                //     }-->
+<!--                //-->
+<!--                //     var htmlform = '';-->
+<!--                //     htmlform += '<form id="custom_form_add_to_cart"  method="POST" />';-->
+<!--                //     htmlform += '<div>WEDDING\'S TITLE: ';-->
+<!--                //     htmlform += html4;-->
+<!--                //     htmlform += '</div>';-->
+<!--                //     htmlform += '<div>Bride\'s name: ';-->
+<!--                //     htmlform += html1 + html11;-->
+<!--                //     htmlform += '</div><input type="checkbox" id="check_bride_email" >Send email';-->
+<!--                //     htmlform += '<div>Groom\'s name: ';-->
+<!--                //     htmlform += html2 + html22;-->
+<!--                //     htmlform += '</div><input type="checkbox" id="check_groom_email" >Send email';-->
+<!--                //     htmlform += '<div><label for="amount"><b>Amount</b></label><input type="number" id="amount" name="amount" required></div>';-->
+<!--                //     htmlform += '<input type="submit" id="add_to_cart" value="Add To Cart" />';-->
+<!--                //     htmlform += '</form>';-->
+<!--                //-->
+<!--                //     $("#show_result_found").html(htmlform);-->
+<!--                //     $("#add_to_cart").off('click');-->
+<!--                //     $("#add_to_cart").click(function (e)-->
+<!--                //     {-->
+<!--                //         e.preventDefault();-->
+<!--                //         let amount = $("#amount").val();-->
+<!--                //         if (amount <= 0)-->
+<!--                //         {-->
+<!--                //             $("input[type=\"number\"]").prop("disabled", true);-->
+<!--                //         }-->
+<!--                //     });-->
+<!--                // }-->
+<!--            }).fail(function (e) {-->
+<!--                alert(e);-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<!---->
+<!---->
+
+
+<style>
+    .row{
+        display: flex;
+    }
+    .col{
+        flex: 1;
+        text-align: center;
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    input{
+        width: 50%;
+    }
+</style>
+<style>
+    .row{
+        display: flex;
+    }
+    .col{
+        flex: 1;
+        text-align: center;
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    input{
+        width: 50%;
+    }
+</style>
+<div>
+    <div class="row">
+        <input type="hidden" id="get-info-url" value="<?php echo $block->getWeddingInfoUrl(); ?>" />
+        <input type="hidden" id="get-add-to-cart-post-param-url" value="<?php echo $block->getAddToCartPostParamUrl(); ?>"/>
+        <div class="col">
+            <label>Bride's email
+                <input name="bride_email" id="bride_email" type="email"/>
+            </label>
+        </div>
+        <div class="col">
+            <label>Groom's email
+                <input name="groom_email" id="groom_email" type="email"/>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col content">
+            <button type="button" id="btn-detail">View Detail</button>
+        </div>
+    </div>
+    <div class="row" id="form-info" style="display: none">
+        <div class="col content">
+            <div style="width: 50%;margin: auto;">
+                <p>Wedding: <span id="wedding-title"></span></p>
+                <p>Bride name: <span id="bride-name"></span></p>
+                <p>Groom name: <span id="groom-name"></span></p>
+                <label>Amount:
+                    <input style="width: 30%" type="number" id="amount" name="amount" value="" />
+
+                    <input type="hidden" id="submit-add-to-cart-url" value=""/>
+                    <input type="hidden" id="product" value="" />
+                    <?php echo $block->getBlockHtml('formkey')?>
+
+
+                    <!--                        <input type="hidden" name="--><?php ///* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?><!--" value="--><?php ///* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?><!--">-->
+
+                </label>
+            </div>
+            <br/>
+            <button type="button" id="custom-btn-add-to-card" disabled>Add to cart</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['showWeddingInfo','addToCartHandler'],function(showWeddingInfo,addToCartHandler){
+        showWeddingInfo();
+        addToCartHandler();
+    })
+</script>
+<script>
+    require(['showInfoWeddingEvent','addToCartHandler'],function(showInfoWeddingEvent,addToCartHandler){
+        showInfoWeddingEvent();
+        addToCartHandler();
+    })
+</script>

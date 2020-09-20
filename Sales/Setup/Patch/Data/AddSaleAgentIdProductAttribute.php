@@ -58,7 +58,6 @@ class AddSaleAgentIdProductAttribute implements DataPatchInterface
             'user_defined' => false,
             'sort_order' => 210,
             'visible' => true,
-            'required' => true,
             'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
             'source' => 'Magenest\Sales\Model\Config\Source\ShowIdSaleAgent',
             'position' => 500,
