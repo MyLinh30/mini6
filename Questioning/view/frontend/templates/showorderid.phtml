@@ -1,0 +1,40 @@
+<style>
+    #show_order_id {
+        width: 100px;
+    }
+    #show_question_chose_order_id {
+        width: 200px;
+        display: none;
+    }
+</style>
+
+<select id="show_order_id">
+    <?php foreach ($block->getOrderId() as $order ) : ?>
+    <option  name="order_id" value="<?php echo $order['entity_id']?>" ><?php echo $order['entity_id']?> </option>
+    <?php endforeach;?>
+</select>
+
+
+<select id="show_question_chose_order_id" >
+     <option id="receive" value=""></option>
+</select>
+
+<script>
+    require(['jquery'],function ($){
+        $('#show_order_id').change(function (e){
+            e.preventDefault();
+            let customLink ='http://mage.local/questioning/exam/getquestionproduct';
+            let value = $('#show_order_id').val();
+            $.post(customLink,{ text : value},function (result){
+                if(result.length === 0){
+                    alert("Product No Question");
+                }
+                else {
+                    $("#show_question_chose_order_id").children('option').text(result);
+                    $("#show_question_chose_order_id").css("display","block");
+                }
+
+            });
+        });
+    });
+</script>

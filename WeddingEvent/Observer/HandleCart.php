@@ -11,8 +11,10 @@ class HandleCart implements ObserverInterface
 {
     public function execute(Observer $observer)
     {
-        if(isset($observer->getInfo()['amount'])){
-            $observer->getProduct()->setPrice($observer->getInfo()['amount']);
+        if(isset($observer->getInfo()['qty'])){
+            $data= $observer->getProduct();
+            $data->setPrice($observer->getInfo()['qty']);
+            $data->save();
         }
         return $observer;
 
