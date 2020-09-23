@@ -1,0 +1,59 @@
+<div>
+    <div>
+        <div>
+            <h2>Manufacturer form</h2>
+        </div>
+        <div>
+            <form method="post" action="<?php $block->getUrlAddManuFacturer()?>">
+                <div>
+                    <label>
+                        Manufacturer name:
+                        <input type="text" name="name" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Enabled:
+                        <input type="checkbox" name="enabled" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Street address:
+                        <input type="text" name="address_street" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        City:
+                        <input type="text" name="address_city" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Country:
+                        <select id="address_country" required>
+                            <option value="vn">VN</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Contact name:
+                        <input type="text" name="contact_name" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Contact phone:
+                        <input type="text" name="contact_phone" required>
+                    </label>
+                </div>
+                <input name="form_key" type="hidden" value="<?php echo $block->getFormKey() ?>" />
+                <div>
+                    <input type="submit" value="Add Manufacturer">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
