@@ -1,0 +1,14 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="customer_account_navigation">
+            <block class="Magenest\Notification\Block\Account\MyNotification" name="customer-account-navigation-my-notification" after="customer-account-navigation-account-link" template="Magenest_Notification::navi/navi.phtml">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">My Notification</argument>
+                    <argument name="path" xsi:type="string">notification/notification/index</argument>
+                    <argument name="sortOrder" xsi:type="number">260</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,17 @@
+<style>
+    #show {
+        color: blue;
+    }
+</style>
+<?php $result = $block ->getNameManufacturer();?>
+<div>
+    <?php if ($result){?>
+        <span>Manufacturer: </span><a id="show" href="<?php echo $block->getUrlInfoManufacturer()?>"><?php echo $result?></a>
+    <?php } ?>
+</div>
+
+<script>
+    require('nameManufacturer',function (nameManufacturer){
+        nameManufacturer();
+    });
+</script>

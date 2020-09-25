@@ -22,6 +22,7 @@ class Save extends \Magento\Backend\App\Action
         $model = $this->_objectManager->create('Magenest\Notification\Model\Notification');
         $model->setData($data);
         $model->save();
+        $this->_eventManager->dispatch('set_notification_received',['notification'=> $model]);
         $this->messageManager->addSuccess('Add NOTIFICATION success!');
         $this->_redirect('notification/index/index');
 

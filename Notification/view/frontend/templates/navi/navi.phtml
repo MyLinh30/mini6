@@ -1,0 +1,14 @@
+<style>
+    #notification_not_view{
+        color: red;
+    }
+</style>
+<li class="nav item <?php echo ($block->getUrlMyNotification()? "active" : "" ) ?>">
+    <?php $result = $block->getNotificationNotView()?>
+   <div>
+       <a href="/notification/notification/index">My Notification
+           <?php if ($result>0) {?>
+               <span id="notification_not_view"><?php echo $block->getNotificationNotView()?></span>
+             <?php }?>
+   </div>
+</li>

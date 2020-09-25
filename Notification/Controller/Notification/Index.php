@@ -1,18 +1,17 @@
 <?php
 
 
-namespace Magenest\Manufacturer\Controller\Adminhtml\Manufacturer;
+namespace Magenest\Notification\Controller\Notification;
 
 
-use Magento\Backend\App\Action;
+use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultFactory;
 
-class Add extends \Magento\Backend\App\Action
+class Index extends \Magento\Framework\App\Action\Action
 {
     public function execute()
     {
         return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        // TODO: Implement execute() method.
     }
 }

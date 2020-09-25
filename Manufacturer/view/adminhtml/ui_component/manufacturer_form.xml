@@ -4,40 +4,40 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
-                notification_form.notification_form_data_source
+                manufacturer_form.manufacturer_form_data_source
             </item>
             <item name="deps" xsi:type="string">
-                notification_form.notification_form_data_source
+                manufacturer_form.manufacturer_form_data_source
             </item>
         </item>
-        <item name="label" xsi:type="string" translate="true">NOTIFICATION Information</item>
+        <item name="label" xsi:type="string" translate="true">MANUFACTURER Information</item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
-            <item name="namespace" xsi:type="string">notification_form</item>
+            <item name="namespace" xsi:type="string">manufacturer_form</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
         <item name="buttons" xsi:type="array">
             <item name="save" xsi:type="array">
                 <item name="name" xsi:type="string">save</item>
-                <item name="label" xsi:type="string" translate="true">Save NOTIFICATION :))</item>
+                <item name="label" xsi:type="string" translate="true">Save MANUFACTURER :))</item>
                 <item name="class" xsi:type="string">primary</item>
             </item>
+            <item name="delete" xsi:type="string">Magenest\Manufacturer\Block\Adminhtml\Manufacturer\Edit\DeleteButton</item>
             <!--            <item name="back" xsi:type="string">Product\Manufacturer\Block\Adminhtml\Manufacturer\Edit\BackButton</item>-->
-            <item name="delete" xsi:type="string">Magenest\Notification\Block\Adminhtml\Notification\Edit\DeleteButton</item>
             <!--            <item name="reset" xsi:type="string">Product\Manufacturer\Block\Adminhtml\Manufacturer\Edit\ResetButton</item>-->
         </item>
 
 
     </argument>
-    <dataSource name="notification_form_data_source">
+    <dataSource name="manufacturer_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magenest\Notification\Model\DataProvider</argument>
-            <argument name="name" xsi:type="string">notification_form_data_source</argument>
+            <argument name="class" xsi:type="string">Magenest\Manufacturer\Model\DataProvider</argument>
+            <argument name="name" xsi:type="string">manufacturer_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="submit_url" xsi:type="url" path="notification/index/save"/>
+                    <item name="submit_url" xsi:type="url" path="manufacturer/manufacturer/save"/>
                 </item>
             </argument>
         </argument>
@@ -54,7 +54,7 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="collapsible" xsi:type="boolean">true</item>
-                <item name="label" xsi:type="string" translate="true">NOTIFICATION Information Details</item>
+                <item name="label" xsi:type="string" translate="true">MANUFACTURER Information Details</item>
                 <item name="sortOrder" xsi:type="number">0</item>
             </item>
         </argument>
@@ -62,46 +62,87 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Name's Notification</item>
+                    <item name="label" xsi:type="string" translate="true">Name Manufacturer</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">notificationform</item>
                     <item name="dataScope" xsi:type="string">name</item>
                 </item>
             </argument>
         </field>
-        <field name="status">
+        <field name="enabled">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Enabledisable</item>
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="label" xsi:type="string" translate="true">Enabled</item>
                     <item name="formElement" xsi:type="string">select</item>
                     <item name="source" xsi:type="string">notificationform</item>
-                    <item name="dataScope" xsi:type="string">status</item>
+                    <item name="dataScope" xsi:type="string">enabled</item>
                 </item>
             </argument>
         </field>
-        <field name="short_description">
+        <field name="address_street">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Short Description</item>
+                    <item name="label" xsi:type="string" translate="true">Address Street</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">notificationform</item>
-                    <item name="dataScope" xsi:type="string">short_description</item>
+                    <item name="dataScope" xsi:type="string">address_street</item>
                 </item>
             </argument>
         </field>
-        <field name="redirect_url">
+        <field name="address_city">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Redirect Url</item>
+                    <item name="label" xsi:type="string" translate="true">Address City</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">notificationform</item>
-                    <item name="dataScope" xsi:type="string">redirect_url</item>
+                    <item name="dataScope" xsi:type="string">address_city</item>
                 </item>
             </argument>
+        </field>
+        <field name="address_country">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Directory\Model\Config\Source\Country</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Address Country</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">notificationform</item>
+                    <item name="dataScope" xsi:type="string">address_country</item>
+                </item>
+            </argument>
+        </field>
+        <field name="contact_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Address City</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">notificationform</item>
+                    <item name="dataScope" xsi:type="string">contact_name</item>
+                </item>
+            </argument>
+        </field>
+        <field name="contact_phone">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Contact Phone</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">notificationform</item>
+                    <item name="dataScope" xsi:type="string">contact_phone</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                    <rule name="min_text_length" xsi:type="string">10</rule>
+                    <rule name="max_text_length" xsi:type="string">12</rule>
+                </validation>
+            </settings>
         </field>
     </fieldset>
 </form>

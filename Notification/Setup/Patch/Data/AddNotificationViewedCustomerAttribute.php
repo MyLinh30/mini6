@@ -78,11 +78,10 @@ class AddNotificationViewedCustomerAttribute implements DataPatchInterface
             \Magento\Customer\Model\Customer::ENTITY,
             'notification_viewed',
             [
-                'type' => 'int',
+                'type' => 'text',
                 'label' => 'Notification Received',
                 'frontend'=>'',
-                'input' => 'select',
-                'source'=> 'Magenest\Notification\Model\Config\Source\GetIdNotification',
+                'input' => 'text',
                 'required' => false,
                 'sort_order' => 30,
                 'visible' => false,
@@ -100,9 +99,7 @@ class AddNotificationViewedCustomerAttribute implements DataPatchInterface
         $attribute->setData('attribute_set_id', $attributeSetId);
         $attribute->setData('attribute_group_id', $attributeGroupId);
 
-        $attribute->setData('used_in_forms', [
-            'adminhtml_customer','customer_account_create', 'customer_account_edit','frontend_customer'
-        ]);
+        $attribute->setData('used_in_forms', []);
 
         $this->attributeResource->save($attribute);
     }

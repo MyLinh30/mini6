@@ -39,7 +39,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'Name Notification'
             )->addColumn(
                 'status',
-                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 50, [
                 'nullable' => false,
             ],

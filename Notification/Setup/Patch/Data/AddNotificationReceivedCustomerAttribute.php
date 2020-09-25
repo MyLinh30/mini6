@@ -79,10 +79,10 @@ class AddNotificationReceivedCustomerAttribute implements DataPatchInterface
             \Magento\Customer\Model\Customer::ENTITY,
             'notification_received',
             [
-                'type' => 'int',
+                'type' => 'text',
                 'label' => 'Notification Received',
                 'frontend'=>'',
-                'input' => 'select',
+                'input' => 'text',
                 'required' => false,
                 'sort_order' => 30,
                 'visible' => false,
@@ -100,9 +100,7 @@ class AddNotificationReceivedCustomerAttribute implements DataPatchInterface
         $attribute->setData('attribute_set_id', $attributeSetId);
         $attribute->setData('attribute_group_id', $attributeGroupId);
 
-        $attribute->setData('used_in_forms', [
-            'adminhtml_customer','customer_account_create', 'customer_account_edit','frontend_customer'
-        ]);
+        $attribute->setData('used_in_forms', []);
 
         $this->attributeResource->save($attribute);
     }

@@ -13,7 +13,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if(version_compare($context->getVersion(),'1.0.6','<'))
+        if(version_compare($context->getVersion(),'1.0.8','<'))
         {
             $installer = $setup;
             $installer->startSetup();
@@ -61,7 +61,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
             )->addColumn(
                 'address_country',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                5, [
+                50, [
                 'nullable' => false,
             ],
                 'Address country'
