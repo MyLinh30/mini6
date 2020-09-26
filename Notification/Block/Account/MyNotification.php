@@ -25,11 +25,9 @@ class MyNotification extends Template
         $this->notificationCollectionFactory = $notificationCollectionFactory;
         parent::__construct($context, $data);
     }
-
     public function getUrlMyNotification (){
         return $this->getUrl('notification/notification/index');
     }
-
     public function getNotificationNotView()
     {
         $customerSession = $this->_sessionFactory->create();

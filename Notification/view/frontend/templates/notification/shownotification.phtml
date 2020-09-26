@@ -5,24 +5,45 @@
     #notification_not_viewed {
      background-color: pink;
     }
+    #my-notification-table {
+        margin-bottom: 20px;
+    }
+
+    select, option {
+        width: 50px;
+    }
+    option {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #total_notification_not_viewed{
+        margin-right: 700px;
+    }
 </style>
-<div <div class="table-wrapper show-notification">
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>
+<?php $gridrecords = $block->getNotification(); ?>
+<?php if ($gridrecords && sizeof($gridrecords)): ?>
+<div  class="table-wrapper show-notification">
     <table class="data table show" id="my-notification-table">
+        <caption class="table-caption"><?php echo __('Grid Notification') ?></caption>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Date</th>
-                <th>Short Description</th>
-                <th>Action</th>
+                <th scope="col" class="col id"><?php echo __('ID') ?></th>
+                <th scope="col" class="col created"><?php echo __('Created At') ?></th>
+                <th scope="col" class="col description"><?php echo __('Short Description') ?></th>
+                <th scope="col" class="col action"><?php echo __('Action') ?></th>
             </tr>
         </thead>
         <tbody>
-            <?php $result = $block->getMyNotification();?>
+        <?php $result = $block->getMyNotification();?>
             <?php foreach ($result['received'] as $notificationReceived) : ?>
                <?php if (in_array($notificationReceived['entity_id'],$result['seen'])) { ?>
                         <tr id="notification_viewed">
                             <td name="entity_id"><?php echo $notificationReceived['entity_id']?></td>
-                            <td name="created_at"><?php echo $notificationReceived['created_at']?></td>
+                            <td name="created_at"><?php echo date('Y-m-d', strtotime($notificationReceived['created_at']));?></td>
                             <td name="short_description"><?php echo $notificationReceived['short_description']?></td>
                             <td name="action" id="col actions">
                                 <div>
@@ -61,13 +82,28 @@
             <?php endforeach;?>
         </tbody>
     </table>
-    <div id="total_notification_not_viewed"></div>
-</div>
+<!--    <div>-->
+<!--        <span id="total_notification_not_viewed"><strong>--><?php //echo $block->getTotalItem()?><!--</strong><span> Item(s)</span></span>-->
+<!---->
+<!--        <span id="show_per_page">Show <select id="select_item_to_show">-->
+<!--                <option value="1">1</option >-->
+<!--                <option value="2">2</option>-->
+<!--                <option value="3">3</option>-->
+<!--            </select> per page</span>-->
+<!--    </div>-->
+</>
+    <?php if ($block->getPagerHtml()): ?>
+         <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+         <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('No any record.'); ?></span></div>
+<?php endif ?>
 <script>
-    require(['changeUrl','changeViewed','deleteNotification'],function (changeUrl,changeViewed,deleteNotification){
+    require(['changeUrl','changeViewed','deleteNotification','showNotification'],function (changeUrl,changeViewed,deleteNotification,showNotification){
         changeUrl();
         changeViewed();
         deleteNotification();
+        showNotification();
     })
 </script>
 
