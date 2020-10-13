@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="customer_register_success">
+        <observer name="customer_register_success_observer" instance="Magenest\MyLinh\Onserver\HandleVendor" disabled="false"/>
+    </event>
+
+
+    <event name="admin_user_save_after">
+        <observer name="admin_user_save_after" instance="Magenest\MyLinh\Observer\HandleSaveUser" disabled="true"/>
+    </event>
+</config>
